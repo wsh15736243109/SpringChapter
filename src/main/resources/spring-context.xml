@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="deviceBean" class="main.java.com.wsh.springchapter01.bean.DeviceInfo">--><!--测试通过Spring来修改类属性（Spring的自动装备配）-->
+        <!--<property name="deviceId" value="001"/>--><!--通过属性自动装配 还可通过构造方法自动装配 或者添加注解AutoWire自动装配（需要添加annotion自动扫描）-->
+        <!--<property name="deviceName" value="hangzhouboye"/>-->
+    <!--</bean>-->
+    <bean id="outputHelper" class="com.wsh.springchapter01.helper.OutputHelper"><!--通过Spring 松耦合-->
+        <property name="iOutputGenerator" ref="CsvOutputGenerator"></property>
+    </bean>
+    <bean id="CsvOutputGenerator" class="com.wsh.springchapter01.interfaces.CsvOutputGenerator"></bean>
+    <bean id="jsonOutput" class="com.wsh.springchapter01.interfaces.JsonOutputGenerator"></bean>
+</beans>
